@@ -1,0 +1,117 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Pages_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/ico" href="../../Images/headicon.ico">
+
+    <title>Bibliosoft</title>
+
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Bootstrap core CSS     -->
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!--  Paper Dashboard CSS    -->
+    <link href="../../assets/css/amazenew.css" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../assets/css/font-muli.css" rel="stylesheet" />
+    <link href="../../assets/css/themify-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url(../../Images/homepageBackground.jpg);
+            background-attachment: fixed;
+            background-position: top left;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form" runat="server">
+        <div class="wrapper">
+            <div class="main-panel">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <asp:ContentPlaceHolder ID="header" runat="server">
+                                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/logo透明背景.png" PostBackUrl="~/Pages/SearchDemo.aspx" Height="43.2px" Width="145.35px" />
+                                <%--<a class="navbar-brand" href="#"> Dashboard </a>--%>
+                            </asp:ContentPlaceHolder>
+                        </div>
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <asp:LoginView ID="LoginView" runat="server">
+                                        <AnonymousTemplate>
+                                            <asp:LinkButton ID="lbLogin" runat="server" Text="<%$ Resources:Resource,ReaderLogin %>" PostBackUrl="~/Pages/ReaderLogin.aspx"></asp:LinkButton>
+                                        </AnonymousTemplate>
+                                        <LoggedInTemplate>
+                                            <asp:LinkButton ID="lbLogout" runat="server" Text="<%$ Resources:Resource,Logout %>" OnClick="lbLogout_Click"></asp:LinkButton>
+                                        </LoggedInTemplate>
+                                    </asp:LoginView>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="LibrarianLogin" runat="server" Text="<%$ Resources:Resource, LibrarianLogin %>" NavigateUrl="~/Pages/LibrarianLogin.aspx"></asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="hlMyAccount" runat="server" Text="<%$ Resources:Resource,MyAccount %>" NavigateUrl="~/Pages/ReaderPages/ShowReaderInfo.aspx" Visible="false"></asp:HyperLink>
+                                </li>
+                                <li>
+                                    <div class="select" style="align-self:center;">
+                                        <asp:DropDownList ID="ddlLanguages" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlLanguages_SelectedIndexChanged" CssClass="form-control">
+                                            <asp:ListItem Value="zh-CN">简体中文</asp:ListItem>
+                                            <asp:ListItem Value="en-US">English</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="content">
+                    <asp:ContentPlaceHolder ID="body" runat="server"></asp:ContentPlaceHolder>
+                </div>
+                <footer class="footer">
+                    <div class="container-fluid" style="text-align:center;">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <asp:HyperLink ID="hlAboutUs" runat="server" Text="<%$ Resources:Resource,AboutUs %>" NavigateUrl="~/Pages/AboutUs.aspx"></asp:HyperLink>
+                                </li>
+                            </ul>
+                        </nav>
+                        <p class="copyright">
+                            &copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            SPM-A3
+                        </p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </form>
+</body>
+
+<!--   Core JS Files   -->
+<script type="text/javascript" src="../../assets/vendors/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../../assets/vendors/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../assets/vendors/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../assets/vendors/perfect-scrollbar.jquery.min.js"></script>
+
+<!-- Amaze Admin javascript methods -->
+<script type="text/javascript" src="../../assets/js/amaze.js"></script>
+
+<asp:contentplaceholder id="foot" runat="server"></asp:contentplaceholder>
+
+</html>
+
+

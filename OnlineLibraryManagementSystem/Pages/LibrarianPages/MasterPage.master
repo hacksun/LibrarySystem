@@ -1,0 +1,282 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Pages_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head runat="server">
+    <meta charset="utf-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <link rel="icon" type="image/ico" href="../../Images/headicon.ico">
+
+    <title>Bibliosoft</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport' >
+    <meta name="viewport" content="width=device-width" >
+
+    <!-- Bootstrap core CSS     -->
+    <link href="../../assets/css/bootstrapnew.min.css" rel="stylesheet" />
+    <!--  Paper Dashboard CSS    -->
+    <link href="../../assets/css/amaze.css" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../assets/css/font-muli.css" rel="stylesheet" />
+    <link href="../../assets/css/themify-icons.css" rel="stylesheet">
+
+    <asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form" runat="server" enctype="multipart/form-data">
+        <div class="wrapper">
+            <div class="sidebar" data-background-color="brown" data-active-color="danger">
+                <!--
+                    Tip 1: you can change the color of the sidebar's background using: data-background-color="white | brown"
+			        Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+		        -->
+                <div class="logo">
+                    <a href="#" class="simple-text">
+                        <asp:ImageButton ID="ibLogo" runat="server" ImageUrl="~/Images/logo透明背景.png" PostBackUrl="~/Pages/SearchDemo.aspx" Height="43.2px" Width="145.35px"/>
+                    </a>
+                </div>
+                <div class="sidebar-wrapper">
+				    <ul class="nav">
+					    <li id="circulation">
+						    <a data-toggle="collapse" href="#BookCirculation" class="collapsed" aria-expanded="false">
+							    <i class="ti-loop"></i>
+							    <p>
+                                    <asp:Label ID="Label2" runat="server" Text="<%$ Resources:Resource,BookCirculation %>"></asp:Label>
+								    <b class="caret"></b>
+							    </p>
+						    </a>
+						    <div class="collapse" id="BookCirculation" role="navigation" aria-expanded="false" style="height: 0px;">
+							    <ul class="nav">
+								    <li>
+									    <a href="IssueBookDemo.aspx">
+                                            <asp:Label ID="Label3" runat="server" Text="<%$ Resources:Resource,Issue %>"></asp:Label>
+									    </a>
+								    </li>
+								    <li>
+									    <a href="ReturnBookDemo.aspx">
+                                            <asp:Label ID="Label4" runat="server" Text="<%$ Resources:Resource,Return %>"></asp:Label>
+									    </a>
+								    </li>
+							    </ul>
+						    </div>
+					    </li>
+					    <li id="book">
+						    <a data-toggle="collapse" href="#BookManagement" class="collapsed" aria-expanded="false">
+							    <i class="ti-book"></i>
+							    <p>
+                                    <asp:Label ID="Label5" runat="server" Text="<%$ Resources:Resource,Book %>"></asp:Label>
+								    <b class="caret"></b>
+							    </p>
+						    </a>
+						    <div class="collapse" id="BookManagement" role="navigation" aria-expanded="false" style="height: 0px;">
+							    <ul class="nav">
+								    <li><a href="AddBooks.aspx">
+                                        <asp:Label ID="Label6" runat="server" Text="<%$ Resources:Resource,AddBook %>"></asp:Label>
+								    </a></li>
+                                    <li><a href="AddPeriodicals.aspx">
+                                        <asp:Label ID="Label7" runat="server" Text="<%$ Resources:Resource,AddPeriodical %>"></asp:Label>
+                                    </a></li>
+                                    <li><a href="SearchBooks.aspx">
+                                        <asp:Label ID="Label8" runat="server" Text="<%$ Resources:Resource,Search %>"></asp:Label>
+                                    </a></li>
+							        <li><a href="ViewHistory.aspx">
+                                        <asp:Label ID="Label9" runat="server" Text="<%$ Resources:Resource,OperationHistory %>"></asp:Label>
+							        </a></li>
+								    <li><a href="CategoryManagement.aspx">
+                                        <asp:Label ID="Label10" runat="server" Text="<%$ Resources:Resource,Category %>"></asp:Label>
+								    </a></li>
+							    </ul>
+						    </div>
+					    </li>
+					    <li id="stack">
+						    <a data-toggle="collapse" href="#StacksManagement" class="collapsed" aria-expanded="false">
+							    <i class="ti-layout-column3"></i>
+							    <p>
+                                    <asp:Label ID="Label11" runat="server" Text="<%$ Resources:Resource,Stack %>"></asp:Label>
+								    <b class="caret"></b>
+							    </p>
+						    </a>
+						    <div class="collapse" id="StacksManagement" role="navigation" aria-expanded="false" style="height: 0px;">
+							    <ul class="nav">
+								    <li><a href="Search_Stacks_Shelves.aspx">
+                                        <asp:Label ID="Label12" runat="server" Text="<%$ Resources:Resource,Search %>"></asp:Label>
+								    </a></li>
+								    <li><a href="AddStacks.aspx">
+                                        <asp:Label ID="Label13" runat="server" Text="<%$ Resources:Resource,AddStack %>"></asp:Label>
+								    </a></li>
+								    <li><a href="AddShelves.aspx">
+                                        <asp:Label ID="Label14" runat="server" Text="<%$ Resources:Resource,AddShelf %>"></asp:Label>
+								    </a></li>
+							    </ul>
+						    </div>
+					    </li>
+					    <li id="reader">
+						    <a data-toggle="collapse" href="#ReaderManagement" class="collapsed" aria-expanded="false">
+							    <i class="ti-user"></i>
+							    <p>
+                                    <asp:Label ID="Label15" runat="server" Text="<%$ Resources:Resource,Reader %>"></asp:Label>
+								    <b class="caret"></b>
+							    </p>
+						    </a>
+						    <div class="collapse" id="ReaderManagement" role="navigation" aria-expanded="false" style="height: 0px;">
+							    <ul class="nav">
+								    <li><a href="ReaderRegistration.aspx">
+                                        <asp:Label ID="Label16" runat="server" Text="<%$ Resources:Resource,Register %>"></asp:Label>
+								    </a></li>
+								    <li><a href="SearchReader.aspx">
+                                        <asp:Label ID="Label17" runat="server" Text="<%$ Resources:Resource,Search %>"></asp:Label>
+								    </a></li>
+							    </ul>
+						    </div>
+					    </li>
+                        <li id="fine">
+						    <a data-toggle="collapse" href="#FineManagement" class="collapsed" aria-expanded="false">
+							    <i class="ti-money"></i>
+							    <p>
+                                    <asp:Label ID="Label24" runat="server" Text="<%$ Resources:Resource,Fine %>"></asp:Label>
+								    <b class="caret"></b>
+							    </p>
+						    </a>
+						    <div class="collapse" id="FineManagement" role="navigation" aria-expanded="false" style="height: 0px;">
+							    <ul class="nav">
+								    <li><a href="FineInfo.aspx">
+                                        <asp:Label ID="Label21" runat="server" Text="<%$ Resources:Resource,Fine %>"></asp:Label>
+								    </a></li>
+								    <li><a href="DamageFine.aspx">
+                                        <asp:Label ID="Label22" runat="server" Text="<%$ Resources:Resource,Reparation %>"></asp:Label>
+								    </a></li>
+							    </ul>
+						    </div>
+					    </li>
+					    <li id="statistics">
+                             <a data-toggle="collapse" href="#Statistics" class="collapsed" aria-expanded="false">
+							    <i class="ti-bar-chart"></i>
+							    <p>
+                                    <asp:Label ID="Label20" runat="server" Text="<%$ Resources:Resource,Statistics %>"></asp:Label>
+								    <b class="caret"></b>
+							    </p>
+						    </a>
+                            <div class="collapse" id="Statistics" role="navigation" aria-expanded="false" style="height: 0px;">
+							    <ul class="nav">
+								    <li><a href="IncomeReport.aspx">
+                                        <asp:Label ID="Label18" runat="server" Text="<%$ Resources:Resource,IncomeReport %>"></asp:Label>
+								    </a></li>
+								    <li><a href="IssueReport.aspx">
+                                        <asp:Label ID="Label23" runat="server" Text="<%$ Resources:Resource,IssueReport %>"></asp:Label>
+								    </a></li>
+                                    <li><a href="ReaderReport.aspx">
+                                        <asp:Label ID="Label25" runat="server" Text="<%$ Resources:Resource,ReaderReport %>"></asp:Label>
+                                    </a></li>
+							    </ul>
+						    </div>
+					    </li>
+					    <li id="notice">
+						    <a data-toggle="collapse" href="#Notice" class="collapsed" aria-expanded="false">
+							    <i class="ti-clipboard"></i>
+							    <p>
+                                    <asp:Label ID="Label19" runat="server" Text="<%$ Resources:Resource,Notice %>"></asp:Label>
+                                    <b class="caret"></b>
+							    </p>
+						    </a>
+                            <div class="collapse" id="Notice" role="navigation" aria-expanded="false" style="height: 0px;">
+							    <ul class="nav">
+								    <li><a href="SearchNotice.aspx">
+                                        <asp:Label ID="Label26" runat="server" Text="<%$ Resources:Resource,Search %>"></asp:Label>
+								    </a></li>
+                                    <li><a href="AddNotice.aspx">
+                                        <asp:Label ID="Label27" runat="server" Text="<%$ Resources:Resource,AddNotice %>"></asp:Label>
+                                    </a></li>
+							    </ul>
+						    </div>
+					    </li>
+                        <li>
+                            <a href="../AboutUs.aspx">
+                                <i class="ti-info"></i>
+                                <p>
+                                    <asp:Label ID="Label1" runat="server" Text="<%$ Resources:Resource,AboutUs %>"></asp:Label>
+                                </p>
+                            </a>
+                        </li>
+				    </ul>
+                </div>
+            </div>
+            <div class="main-panel">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <asp:ContentPlaceHolder id="header" runat="server">
+                                <%--<a class="navbar-brand" href="#"> Dashboard </a>--%>
+                            </asp:ContentPlaceHolder>  
+                        </div>
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <asp:LoginView ID="LoginView" runat="server">
+                                        <AnonymousTemplate>
+                                            <asp:LinkButton ID="lbLogin" runat="server" Text="<%$ Resources:Resource,Login %>" PostBackUrl="~/Pages/LibrarianLogin.aspx"></asp:LinkButton>
+                                        </AnonymousTemplate>
+                                        <LoggedInTemplate>
+                                            <asp:LinkButton ID="lbLogout" runat="server" Text="<%$ Resources:Resource,Logout %>" OnClick="lbLogout_Click"></asp:LinkButton>
+                                        </LoggedInTemplate>
+                                    </asp:LoginView>
+                                </li>
+                                <li style="margin:17px">
+                                    <div class="select">
+                                        <asp:DropDownList ID="ddlLanguages" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlLanguages_SelectedIndexChanged" CssClass="form-control">
+                                            <asp:ListItem Value="zh-CN">简体中文</asp:ListItem>
+                                            <asp:ListItem Value="en-US">English</asp:ListItem>
+                                        </asp:DropDownList>
+                                    </div>
+                                </li>                   
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div class="content">
+                    <asp:ContentPlaceHolder id="body" runat="server"></asp:ContentPlaceHolder>
+                </div>
+                <footer class="footer" style="padding:5px 5px 7px 5px;">
+                    <div class="container-fluid">
+                        <nav class="pull-left">
+                            <ul>
+                                <li style="margin:0px">
+                                        <asp:HyperLink ID="hlAboutUs" style="margin:0px" runat="server" Text="<%$ Resources:Resource,AboutUs %>" NavigateUrl="~/Pages/AboutUs.aspx"></asp:HyperLink>
+                                </li>
+                            </ul>
+                        </nav>
+                        <p class="copyright pull-right" style="margin:0px;">
+                            &copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>
+                            SPM-A3
+                        </p>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </form>
+</body>
+  
+<!--   Core JS Files   -->
+<script src="../../assets/vendors/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script src="../../assets/vendors/jquery-ui.min.js" type="text/javascript"></script>
+<script src="../../assets/vendors/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../assets/vendors/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+
+<!-- Amaze Admin javascript methods -->
+<script src="../../assets/js/amaze.js"></script>
+
+<asp:ContentPlaceHolder ID="foot" runat="server"></asp:ContentPlaceHolder>
+
+</html>
